@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Segoe UI Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Segoe UI Regular'), url('Segoe UI.woff') format('woff');
+}
+@font-face{
+    font-family:NotoSansCJKtc-Regular;
+    src: url(./font/NotoSansCJKtc-Regular.otf) format("opentype");
+}
+@font-face{
+    font-family:NotoSansCJKtc-Bold;
+    src: url(./font/NotoSansCJKtc-Bold.otf) format("opentype");
+}
+@font-face{
+    font-family:NotoSansCJKtc-Medium;
+    src: url(./font/NotoSansCJKtc-Medium.otf) format("opentype");
+}
