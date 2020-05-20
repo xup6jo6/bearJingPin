@@ -114,7 +114,7 @@ img{
     z-index: 3;
     opacity: 0;
 }
-.name_input{
+.appellation_input{
     text-align: center;
     cursor: auto;
     border-radius: 71px;
@@ -162,7 +162,7 @@ img{
     left: 26.06%;
     position: absolute;
 }
-.name_text{
+.appellation_text{
     font-family: NotoSansCJKtc-Regular;
     font-size: 65px;
     color:#564E42;
