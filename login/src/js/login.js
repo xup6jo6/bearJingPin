@@ -7,10 +7,11 @@ $(document).ready(function() {
             account: $('.account_input').val(),
             password: $('.password_input').val(),
         }, (res) => {
-            var a =res.appellation;
-            var b =res.account;
-            var c =res.password;
-            alert("appellation: "+a+"\naccount: "+b+"\npassword: "+c);
+            const form = document.forms['form']
+            const appellation = form.elements.appellation.value;
+            const account = form.elements.account.value;
+            const password = form.elements.account.valuel
+            alert("appellation: "+appellation+"\naccount: "+account+"\npassword: "+password);
         });
     });
 });
