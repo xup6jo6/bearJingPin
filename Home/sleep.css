@@ -1,0 +1,131 @@
+#pooh{
+position:absolute;
+top: 77px;
+left: 264px;
+width: 110px;
+height: 82px;
+z-index:10;
+}
+#span{
+position:absolute;
+top: 525px;
+left: 931px;
+width: 550px;
+height: 379px;
+}
+#sleep{
+position:absolute;
+top: 525px;
+left: 931px;
+width: 500px;
+height: 379px;
+}
+
+
+#EXP{
+position:absolute;
+top: 82px;
+left: 470px;
+width: 91px;
+height: 73px;
+}
+#map{
+position:absolute;
+top: 514px;
+left: 1545px;
+width: 310px;
+height: 310px;
+}
+#EXPi{
+position:absolute;
+top: 99px;
+left: 570px;
+width: 160px;
+height: 40px;
+color: #74B7B2;
+}
+#EXPo{
+position:absolute;
+top: 99px;
+left: 570px;
+width: 213px;
+height: 40px;
+}
+#hungry{
+position:absolute;
+top: 77px;
+left: 853px;
+width: 165px;
+height: 82px;
+}
+#huni{
+position:absolute;
+top: 99px;
+left: 1038px;
+width: 350px;
+height: 40px;
+}
+#huno{
+position:absolute;
+top: 99px;
+left: 1038px;
+width: 429px;
+height: 40px;
+}
+#love{
+position:absolute;
+top: 371px;
+left: 131px;
+width: 230px;
+height: 500px;
+}
+#E0{
+position:absolute;
+top: 82px;
+left: 1659px;
+width: 101px;
+height: 73px;
+}
+#photo{
+position:absolute;
+top: 324px;
+left: 1486px;
+width: 220px;
+height: 220px;
+}
+#loveb{
+position:absolute;
+top: 380px;
+left: 175px;
+width: 110px;
+height: 350px;
+}
+#lv5{
+position:absolute;
+top: 58px;
+left: 138px;
+width: 44px;
+height: 111px;
+}
+#top{
+position:absolute;
+top: 34px;
+left: 75px;
+width: 1778px;
+height: 170px;
+z-index:-2;
+}
+#exit{
+position:absolute;
+top: 827px;
+left: 1546px;
+width: 170px;
+height: 170px;
+}
+#money{
+position:absolute;
+top: 79px;
+left: 1555px;
+width: 75px;
+height: 80px;
+}
