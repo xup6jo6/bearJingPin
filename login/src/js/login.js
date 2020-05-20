@@ -3,15 +3,14 @@ $(document).ready(function() {
     $('#type button[class=btn]').click((event) => {
         event.preventDefault()
         $.post('./login', {
-            appellation: $('#type input[name=appellation]').val(),
-            account: $('#type input[name=account]').val(),
-            password: $('#type input[name=password]').val(),
+            appellation: $('.appellation_input').val(),
+            account: $('.account_input').val(),
+            password: $('.password_input').val(),
         }, (res) => {
-            console.log(res);
-            var Appellation =res['appellation'];
-            var Account =res['account'];
-            var Password =res['password'];
-            alert("appellation: "+Appellation+"\naccount: "+Account+"\npassword: "+Password);
+            var a =res.appellation;
+            var b =res.account;
+            var c =res.password;
+            alert("appellation: "+a+"\naccount: "+b+"\npassword: "+c);
         });
     });
 });
