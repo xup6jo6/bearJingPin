@@ -11,7 +11,7 @@ $(document).ready(function() {
             const appellation = form.elements.appellation.value;
             const account = form.elements.account.value;
             const password = form.elements.password.value;
-            alert("appellation: "+appellation+"\naccount: "+account+"\npassword: "+password);
+            // alert("appellation: "+appellation+"\naccount: "+account+"\npassword: "+password);
         });
     });
 });
