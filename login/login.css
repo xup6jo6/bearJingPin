@@ -16,19 +16,22 @@ img{
 }
 .logo{
     top: 27.13%;
-    left: calc(50% - 273px);
+    left: 50%;
+    transform: translateX(-50%);
     width: 28.41%;
     z-index: 1;
 }
 .R1{
     top: 68.24%;
-    left: 36.61%;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 1;
     opacity: 0;
 }
 .R2{
     top: 68.24%;
-    left: 36.61%;
+    left: 50%;
+    transform: translateX(-146%);
     z-index: 2;
     opacity: 0;
     background-image:url(./pic/Rectangle2.png);
@@ -59,6 +62,8 @@ img{
 @keyframes lengthen{
     to{
         background-image: url(./pic/Rectangle2_1.png);
+        left: 50%;
+        transform: translateX(-73%);
         width:352px;
         height:26px;
         border-radius: 21px;
@@ -73,6 +78,8 @@ img{
 @keyframes lengthen2{
     to{
         background-image: url(./pic/Rectangle2_2.png);
+        left: 50%;
+        transform: translateX(-50%);
         width:514px;
         height:26px;
         border-radius: 21px;
@@ -101,7 +108,8 @@ img{
     to{
         top: 13.8%;
         width: 23%;
-        left: calc(50% - 221px);
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 
@@ -109,7 +117,8 @@ img{
     width: 30.78%;
     height: 29.26%;
     top: 50.74%;
-    left: calc(50% - 295px);
+    left: 50%;
+    transform: translateX(-50%);
     position: absolute;
     z-index: 3;
     opacity: 0;
