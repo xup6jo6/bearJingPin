@@ -1,8 +1,14 @@
 const express = require('express')
 const app =new express()
-const port = 9999
+const port = 8888
+var bodyParser = require('body-parser');
+//var cookieParser = require('cookie-parser');
+//var login=require('./routes/login');
+var register=require('./routes/register');
 
 app.use('/', express.static(__dirname));
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 console.log(__dirname)
 
@@ -11,12 +17,12 @@ app.listen(port, () => {
 })
 
 
+//app.use('/login', login);
+app.use('/Home/test.html', register);
 
-var bodyParser = require('body-parser');
 
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+
 
 app.post('/Home/test.html', (req, res) => {
   res.sendFile(__dirname + '/Home/test.html')
