@@ -236,21 +236,21 @@ img{
 .appellationR{
     top: -2%;
     width: 22%;
-    height: 30%;
+    height: 32%;
     cursor: default;
     pointer-events:none;
 }
 .accountR{
     top: 34%;
     width: 22%;
-    height: 30%;
+    height: 32%;
     cursor: default;
     pointer-events:none;
 }
 .passwordR{
     top: 70%;
     width: 22%;
-    height: 30%;
+    height: 32%;
     cursor: default;
     pointer-events:none;
 }
@@ -289,14 +289,14 @@ img{
 .accountL{
     top: 16%;
     width: 22%;
-    height: 30%;
+    height: 32%;
     cursor: default;
     pointer-events:none;
 }
 .passwordL{
     top: 52%;
     width: 22%;
-    height: 30%;
+    height: 32%;
     cursor: default;
     pointer-events:none;
 }
