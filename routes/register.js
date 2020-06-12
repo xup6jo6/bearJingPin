@@ -19,8 +19,10 @@ register.post('/',(req, res)=>{ //使用者向db進行註冊
                     //res.cookie('userID', req.body.email, { path: '/', signed: true, maxAge:600000});  //set cookie
                     //res.json({status:"OK"})
                     console.log("OK!")
+                    console.log("===User Register OK!===")
                 }
             })
+            res.redirect('../Home/test.html')
     }
 })
 module.exports = register;

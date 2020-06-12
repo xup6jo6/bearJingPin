@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var register=require('./routes/register');
 
 app.use('/', express.static(__dirname));
+app.use('/', express.static(__dirname + '/login'));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
@@ -16,9 +17,12 @@ app.listen(port, () => {
   console.log(`listening on port: ${port}`)
 })
 
-
+app.get('/' , (req,res) => {
+  res.sendFile(__dirname + '/login/login.html')
+  console.log("Someone's here!");
+})
 //app.use('/login', login);
-app.use('/Home/test.html', register);
+app.use('/register', register);
 
 
 
