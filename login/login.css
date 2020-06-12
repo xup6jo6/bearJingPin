@@ -6,6 +6,7 @@ body {
     box-sizing: border-box;
     position: relative;
     z-index: 0;
+    overflow-x: hidden;
 }
 
 img{
@@ -20,6 +21,7 @@ img{
     transform: translateX(-50%);
     width: 28.41%;
     z-index: 1;
+    pointer-events:none;
 }
 .R1{
     top: 68.24%;
@@ -29,6 +31,7 @@ img{
     height:2.4%;
     z-index: 1;
     opacity: 0;
+    pointer-events:none;
 }
 .R2{
     top: 68.24%;
@@ -41,6 +44,7 @@ img{
     width: 9.16%;
     height:2.4%;
     border-radius: 21px;
+    pointer-events:none;
 }
 .R1-1{
     animation-duration:0s;
@@ -107,6 +111,7 @@ img{
     animation-duration: 1s;
     animation-fill-mode: forwards;
     animation-name: logo-move;
+    pointer-events:none;
 }
 
 @keyframes logo-move{
@@ -118,17 +123,69 @@ img{
     }
 }
 
-.typein{
+.login1{
+    height: 32.77%;
+    right: 0%;
+    bottom: 0%;
+    cursor: pointer;
+}
+.register1{
+    height: 32.77%;
+    left: 0%;
+    bottom: 0%;
+    cursor: pointer;
+}
+.btn{
+    border: 0;
+    padding:  0;
+}
+.disable-btn{
+    pointer-events:none;
+    cursor: default;
+}
+
+.login2{
+    left: 0%;
+    bottom: 0%;
+    cursor: pointer;
+}
+.login2S{
+    height: 21.11%;
+}
+.login2B{
+    height: 39.07%;
+}
+.register2{
+    left: 0%;
+    top: 0%;
+    cursor: pointer;
+}
+.register2S{
+    height: 23.15%;
+}
+.register2B{
+    height: 41.5%;
+}
+
+#registerblock{
     width: 30.78%;
     height: 29.26%;
-    top: 50.74%;
+    top: 50%;
     left: 50%;
     transform: translateX(-50%);
     position: absolute;
     z-index: 3;
-    opacity: 0;
 }
-.appellation_input{
+#loginblock{
+    width: 30.78%;
+    height: 29.26%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    z-index: 3;
+}
+.appellationR_input{
     text-align: center;
     cursor: auto;
     border-radius: 71px;
@@ -144,7 +201,7 @@ img{
     right: 0px;
     position: absolute;
 }
-.account_input{
+.accountR_input{
     text-align: center;
     cursor: auto;
     border-radius: 71px;
@@ -160,7 +217,7 @@ img{
     right: 0px;
     position: absolute;
 }
-.password_input{
+.passwordR_input{
     text-align: center;
     cursor: auto;
     border-radius: 71px;
@@ -176,34 +233,77 @@ img{
     right: 0px;
     position: absolute;
 }
-.appellation{
+.appellationR{
     top: -2%;
     width: 22%;
+    height: 28%;
     cursor: default;
+    pointer-events:none;
 }
-.account{
+.accountR{
     top: 34%;
     width: 22%;
+    height: 28%;
     cursor: default;
+    pointer-events:none;
 }
-.password{
+.passwordR{
     top: 70%;
     width: 22%;
+    height: 28%;
     cursor: default;
+    pointer-events:none;
 }
-.typein1{
-    animation-duration:2s;
-    animation-fill-mode: forwards;
-    animation-name: appear;
-}
-.btn{
-    border: 0;
-    padding:  0;
-    cursor: pointer;
-}
-.next{
-    top: 73.73%;
-    left: 156.34%;
+.accountL_input{
+    text-align: center;
+    cursor: auto;
+    border-radius: 71px;
+    border: 0px;
+    background-color:#564E42;
+    background:rgba(0,0,0,0.15);
+    font-family: NotoSansCJKtc-Regular;
+    font-size: 200%;
+    color:#564E42;
+    height: 21.52%;
+    width: 70%;
+    top: 21.87%;
+    right: 0px;
     position: absolute;
-    width: 35.7%;
+}
+.passwordL_input{
+    text-align: center;
+    cursor: auto;
+    border-radius: 71px;
+    border: 0px;
+    background-color:#564E42;
+    background:rgba(0,0,0,0.15);
+    font-family: NotoSansCJKtc-Regular;
+    font-size: 200%;
+    color:#564E42;
+    height: 21.52%;
+    width: 70%;
+    top: 57.95%;
+    right: 0px;
+    position: absolute;
+}
+.accountL{
+    top: 16%;
+    width: 22%;
+    height: 28%;
+    cursor: default;
+    pointer-events:none;
+}
+.passwordL{
+    top: 52%;
+    width: 22%;
+    height: 28%;
+    cursor: default;
+    pointer-events:none;
+}
+
+.next{
+    right: -115%;
+    width: 58.04%;
+    transform: translateY(-50%);
+    cursor: pointer;
 }
