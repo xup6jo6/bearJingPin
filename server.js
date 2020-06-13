@@ -3,7 +3,7 @@ const app =new express()
 const port = 8888
 var bodyParser = require('body-parser');
 //var cookieParser = require('cookie-parser');
-//var login=require('./routes/login');
+var login=require('./routes/login');
 var register=require('./routes/register');
 
 app.use('/', express.static(__dirname));
@@ -21,7 +21,7 @@ app.get('/' , (req,res) => {
   res.sendFile(__dirname + '/login/login.html')
   console.log("Someone's here!");
 })
-//app.use('/login', login);
+app.use('/login', login);
 app.use('/register', register);
 
 
