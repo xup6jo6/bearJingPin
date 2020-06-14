@@ -1,6 +1,15 @@
 var express = require('express');
-var CRUD = require('../models/CRUD')
 var login = express.Router();
+var mongoose = require('mongoose');
+const config = require('../models/config')
+const url = `mongodb://${config.mongodb.user}:${config.mongodb.password}@${config.mongodb.host}/${config.mongodb.database}`
+
+mongoose.connect(url,{ useNewUrlParser: true,useUnifiedTopology: true })
+const db = mongoose.connection;
+db.on('error', err => console.error('connection error', err));  // 連線異常
+db.once('open', db => console.log('Connected to MongoDB'));     // 連線成功
+
+var User = require('../models/users')
 
 /*login.get('/',(req, res)=>{
 var name='guest';
@@ -20,27 +29,27 @@ login.post('/',(req, res)=>{
     {
         res.json({status:"fail", message:'no email or password'})
     }else{
-        data={
+        data ={
             account :  req.body.account,
             password : req.body.password
         }
         //data是json格式裡面有req傳來的email和password
         console.log("Before Check PWD");
-        CRUD.checkPassword(data, (err, result)=>{
-            console.log("=== Redirect Page BEFORE ===");
-            if(!err){
-                console.log("=== NOT ERROR ===");
-                //res.cookie('userID', req.body.email, { path: '/', signed: true, maxAge:600000});  //set cookie
-                res.status(200)
-                res.json({status:"OK"})
-            }else{
-                res.json({status:"fail", message:result})
-                //res.redirect('../Home/test.html')
+        User.findOne({
+            account:data.account,
+            password:data.password
+        } , (err,result) => {
+            if(err) throw err
+            if(result){
+                console.log("==== Login Success ====")
+                console.log("DATA IS :"+ result.account)
             }
-            console.log("=== Redirect Page BEFORE ===");
-            res.redirect('../Home/test.html')
-            console.log("=== Redirect Page ===");
+            else
+                console.log("=== 帳號或密碼輸入錯誤 ===");
+        
         })
+        
+        res.redirect('../Home/test.html')
     }
 })
 /*login.post('/logout',(req, res)=>{
