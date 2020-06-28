@@ -15,9 +15,9 @@ console.log("Check")
 register.post('/post',(req, res)=>{ //使用者向db進行註冊
     console.log("====== This is register.js =======")
     if(req.body.appellation == "" || req.body.account=="" || req.body.password==""){//檢查req中的email和password是否為空
-        errors.push("請在空格內填入資料");
-        res.json({status:"fail" , message:"No password"})
-    }else{
+        res.json({status:"fail" , message:"註冊資料不可為空白"})
+    }
+    else{
         var user = new User({
             appellation : req.body.appellation,
             account :  req.body.account,
@@ -26,10 +26,12 @@ register.post('/post',(req, res)=>{ //使用者向db進行註冊
         console.log("===================" + user.account + "=====================");
         //data是json格式裡面有req傳來的email和password
         User.countDocuments({account:user.account} , (err,count) => {
-                if(err) throw err
+            if(err) 
+                throw err
             else{
                 if(count>0){
                     console.log("This account has already existed! count : "+count)
+                    res.json({status:"fail" , message:"該帳號名稱已經被註冊過"});
                 }
                 else{
                     console.log("=== 新用戶註冊 ===");
@@ -37,19 +39,10 @@ register.post('/post',(req, res)=>{ //使用者向db進行註冊
                         if(err)
                             return console.error(err);
                     });
+                    res.json({status:"OK" , message:"Register Success!"});
                 }
-                //res.send("Yeah");
-                
             }
         })
-        /*CRUD.register(data, (err, result)=>{
-            if(!err){
-                //res.cookie('userID', req.body.email, { path: '/', signed: true, maxAge:600000});  //set cookie
-                //res.json({status:"OK"})
-                console.log("===User Register OK!===")
-            }
-        })*/
-        res.redirect('../Home/test.html')
         console.log("Redirect");
     }
 })

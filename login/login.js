@@ -1,27 +1,3 @@
-/*$('#login-button').click(function(){
-  $('#login-button').fadeOut("slow",function(){
-    $("#container-login").fadeIn();
-    TweenMax.from("#container-login", .4, { scale: 0, ease:Sine.easeInOut});
-    TweenMax.to("#container-login", .4, { scale: 1, ease:Sine.easeInOut});
-  });
-});
-
-$(".close-btn").click(function(){
-  TweenMax.from("#container-login", .4, { scale: 1, ease:Sine.easeInOut});
-  TweenMax.to("#container-login", .4, { left:"0px", scale: 0, ease:Sine.easeInOut});
-  $("#container-login, #forgotten-container, #container-register").fadeOut(800, function(){
-    $("#login-button").fadeIn(800);
-  });
-});
-*/
-/* Forgotten Password */
-/*$('#forgotten').click(function(){
-  $("#container-login").fadeOut(function(){
-    $("#forgotten-container").fadeIn();
-  });
-});*/
-
-
 /*$(".login-post").on("click",function(event){
   event.preventDefault();//使a自带的方法失效，即无法调整到href中的URL(http://www.baidu.com)
   $.ajax({
@@ -42,13 +18,6 @@ $(".close-btn").click(function(){
 });*/
 
 
-/*$(".register").on("click",function(event){
-  $('#container-login').fadeOut("slow",function(){
-    $("#container-register").fadeIn();
-    TweenMax.from("#container-register", .4, { scale: 0, ease:Sine.easeInOut});
-    TweenMax.to("#container-register", .4, { scale: 1, ease:Sine.easeInOut});
-  });
-});*/
 $(".register-post").on("click",function(event){
   // document.location.href ='/login/register'
   var appellation = $(".appellationR_input")[0].value
@@ -56,10 +25,11 @@ $(".register-post").on("click",function(event){
   var password = $(".passwordR_input")[0].value
   //alert("appellation:"+appellation+"\npassword:"+password);
 
-  if(password=='' || account == '' || appellation == ''){
+  if(/*password=='' || account == '' || appellation == ''*/false){
       //alert("Please fill in the blank");
-      console.log("Please Fill in the blank");
-      //$('#alert').show()
+      /*console.log("Please Fill in the blank");
+      alert("註冊資料不可為空白");
+      history.go(0);*/
   }
   else{
       event.preventDefault();//使a自带的方法失效，即无法调整到href中的URL(http://www.baidu.com)
@@ -75,13 +45,16 @@ $(".register-post").on("click",function(event){
             }),//参数列表
             success:function(result){
                 console.log('Ajax Success');
+                console.log('result:'+result);
+                console.log("status:"+result.status);
+                console.log("msg:"+result.message);
                 //document.location.href ='/Home/test.html'
                 //请求正确之后的操作
                 if(result.status=='fail'){
                     alert(result.message)
                 }
                 else{
-                    //document.location.href ='/Home/test.html'
+                    document.location.href ='/Home/test.html'
                 }
             },
             /*error:function(XMLHttpRequest, textStatus, errorThrown){
@@ -93,5 +66,5 @@ $(".register-post").on("click",function(event){
       });
       
   }
-  console.log("AAAAAAAAAAAAAAEEEEEEEEEEEEEEEEE");
+
 });
