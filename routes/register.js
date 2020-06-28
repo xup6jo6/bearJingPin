@@ -12,10 +12,11 @@ db.once('open', db => console.log('Connected to MongoDB'));     // 連線成功
 var User = require('../models/users')
 
 console.log("Check")
-register.post('/',(req, res)=>{ //使用者向db進行註冊
+register.post('/post',(req, res)=>{ //使用者向db進行註冊
     console.log("====== This is register.js =======")
     if(req.body.appellation == "" || req.body.account=="" || req.body.password==""){//檢查req中的email和password是否為空
-            res.json({status:"Fail", message:'no email or password'})
+        errors.push("請在空格內填入資料");
+        res.json({status:"fail" , message:"No password"})
     }else{
         var user = new User({
             appellation : req.body.appellation,
@@ -27,8 +28,9 @@ register.post('/',(req, res)=>{ //使用者向db進行註冊
         User.countDocuments({account:user.account} , (err,count) => {
                 if(err) throw err
             else{
-                if(count>0)
+                if(count>0){
                     console.log("This account has already existed! count : "+count)
+                }
                 else{
                     console.log("=== 新用戶註冊 ===");
                     user.save((err,user) =>{
@@ -48,6 +50,7 @@ register.post('/',(req, res)=>{ //使用者向db進行註冊
             }
         })*/
         res.redirect('../Home/test.html')
+        console.log("Redirect");
     }
 })
 module.exports = register;

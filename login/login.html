@@ -8,6 +8,7 @@
   </head>
 
   <body>
+      <!--h1><%= msg %></h1-->
       <img class="logo" src="./pic/LOGO.png">
       <img class="R1" src="./pic/Rectangle1.png">
       <img class="R2">
@@ -17,7 +18,7 @@
       <img class="register2" src="./pic/register2.png" style="display: none;">
       
       <div id="registerblock" style="display: none;">
-          <form  action="/register" method="post">
+          <form>
             <img class="appellationR" src="./pic/appellation.png">
             <input class="appellationR_input" type="text" name="appellation">
             <img class="accountR" src="./pic/account.png">
@@ -25,7 +26,7 @@
             <img class="passwordR" src="./pic/password.png">
             <input class="passwordR_input" type="password" name="password">
             <button class="btn" type="submit">
-                <img class="next" src="./pic/iconNext.png">
+                <img class="register-post" src="./pic/iconNext.png">
             </button>
           </form>
       </div>
@@ -37,7 +38,7 @@
             <img class="passwordL" src="./pic/password.png">
             <input class="passwordL_input" type="password" name="password">
             <button class="btn" type="submit">
-                <img class="next" src="./pic/iconNext.png">
+                <img class="login-post" src="./pic/iconNext.png">
             </button>
           </form>
       </div>
@@ -45,6 +46,10 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src='animate.js'></script>
     <script src='../server.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="./login.js"></script>
+
   </body>
 
 </html>

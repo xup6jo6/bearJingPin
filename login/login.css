@@ -301,7 +301,13 @@ img{
     pointer-events:none;
 }
 
-.next{
+.register-post{
+    right: -115%;
+    width: 58.04%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.login-post{
     right: -115%;
     width: 58.04%;
     transform: translateY(-50%);

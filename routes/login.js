@@ -44,8 +44,10 @@ login.post('/',(req, res)=>{
                 console.log("==== Login Success ====")
                 console.log("DATA IS :"+ result.account)
             }
-            else
+            else{
                 console.log("=== 帳號或密碼輸入錯誤 ===");
+                return res.redirect('/');
+            }
         
         })
         

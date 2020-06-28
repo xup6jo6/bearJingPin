@@ -1,0 +1,52 @@
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>小熊餵你-login</title>
+    <link href="login.css" rel="stylesheet" type="text/css">
+    <link href="font.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+      <h1><%= game %></h1>
+      <img class="logo" src="./pic/LOGO.png">
+      <img class="R1" src="./pic/Rectangle1.png">
+      <img class="R2">
+      <img class="login1" src="./pic/login1.png" style="display: none;">
+      <img class="register1" src="./pic/register1.png" style="display: none;">
+      <img class="login2" src="./pic/login2.png" style="display: none;">
+      <img class="register2" src="./pic/register2.png" style="display: none;">
+      
+      <div id="registerblock" style="display: none;">
+          <form  action="/register" method="post">
+            <img class="appellationR" src="./pic/appellation.png">
+            <input class="appellationR_input" type="text" name="appellation">
+            <img class="accountR" src="./pic/account.png">
+            <input class="accountR_input" type="text" name="account">
+            <img class="passwordR" src="./pic/password.png">
+            <input class="passwordR_input" type="password" name="password">
+            <button class="btn" type="submit">
+                <img class="next" src="./pic/iconNext.png">
+            </button>
+          </form>
+      </div>
+      
+      <div id="loginblock" style="display: none;">
+          <form  action="/login" method="post">
+            <img class="accountL" src="./pic/account.png">
+            <input class="accountL_input" type="text" name="account">
+            <img class="passwordL" src="./pic/password.png">
+            <input class="passwordL_input" type="password" name="password">
+            <button class="btn" type="submit">
+                <img class="next" src="./pic/iconNext.png">
+            </button>
+          </form>
+      </div>
+      
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src='animate.js'></script>
+    <script src='../server.js'></script>
+  </body>
+
+</html>
+
