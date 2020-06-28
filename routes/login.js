@@ -24,11 +24,11 @@ var name='guest';
 
    res.render('login', { title: 'Express', member:name, logstatus:isLogin });
 })*/
-login.post('/',(req, res)=>{
-    if(req.body.account=="" || req.body.password=="")//檢查req中的email和password是否為空
-    {
+login.post('/post',(req, res)=>{
+    if(req.body.account=="" || req.body.password==""){
         res.json({status:"fail", message:'no email or password'})
-    }else{
+    }
+    else{
         data ={
             account :  req.body.account,
             password : req.body.password
@@ -43,15 +43,13 @@ login.post('/',(req, res)=>{
             if(result){
                 console.log("==== Login Success ====")
                 console.log("DATA IS :"+ result.account)
+                res.json({status:"OK", message:'Login Success'})
             }
             else{
                 console.log("=== 帳號或密碼輸入錯誤 ===");
-                return res.redirect('/');
+                res.json({status:"fail", message:'帳號或密碼輸入錯誤'})
             }
-        
         })
-        
-        res.redirect('../Home/test.html')
     }
 })
 /*login.post('/logout',(req, res)=>{
