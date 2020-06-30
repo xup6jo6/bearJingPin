@@ -10,6 +10,7 @@ db.on('error', err => console.error('connection error', err));  // 連線異常
 db.once('open', db => console.log('Connected to MongoDB'));     // 連線成功
 
 var User = require('../models/users')
+var UserStatus = require('../models/userStatus')
 
 console.log("Check")
 register.post('/post',(req, res)=>{ //使用者向db進行註冊
@@ -21,7 +22,10 @@ register.post('/post',(req, res)=>{ //使用者向db進行註冊
         var user = new User({
             appellation : req.body.appellation,
             account :  req.body.account,
-            password : req.body.password,
+            password : req.body.password
+        });
+        var userStatus = new UserStatus({
+            account : req.body.account,
             level : 1,
             exp : 0,
             money : 0,
@@ -40,6 +44,10 @@ register.post('/post',(req, res)=>{ //使用者向db進行註冊
                 else{//成功註冊
                     console.log("=== 新用戶註冊 ===");
                     user.save((err,user) =>{
+                        if(err)
+                            return console.error(err);
+                    });
+                    userStatus.save((err,success) =>{
                         if(err)
                             return console.error(err);
                     });

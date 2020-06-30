@@ -9,7 +9,6 @@ function getInfo(){
         }),//参数列表
         success:function(result){
             console.log('Ajax Success');
-            console.log('result:'+result);
             console.log("status:"+result.status);
             console.log("msg:"+result.message);
             console.log('account:'+result.user.account)

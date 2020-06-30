@@ -9,20 +9,21 @@ const db = mongoose.connection;
 db.on('error', err => console.error('connection error', err));  // 連線異常
 db.once('open', db => console.log('getinfo.js 連接資料庫成功'));     // 連線成功
 
-var User = require('../models/users')
+var UserStatus = require('../models/userStatus')
 
 getInfo.post('/',(req, res)=>{
     data ={
         account :  req.body.account,
     }
-    User.findOne({
+    UserStatus.findOne({
         account:data.account
     } , (err,result) => {
+        console.log('try to find');
         if(err) throw err
         if(result){
             console.log("==== 找到資料了 ====")
             console.log("登入的帳號是 :"+ result.account)
-            console.log("登入的小熊是 :"+ result.appellation)
+            console.log("登入者的等級是 :"+ result.level)
             res.json({status:"OK", message:'資料庫找人成功',user:result})
         }
         else{

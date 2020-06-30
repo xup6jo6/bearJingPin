@@ -4,10 +4,6 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
     appellation:String,
     account:String,
-    password:String,
-    level:Number,
-    exp:Number,
-    money:Number,
-    love:Number
+    password:String
 });
 module.exports = mongoose.model('userModel', userSchema);
