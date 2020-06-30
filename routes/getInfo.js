@@ -10,10 +10,25 @@ db.on('error', err => console.error('connection error', err));  // 連線異常
 db.once('open', db => console.log('getinfo.js 連接資料庫成功'));     // 連線成功
 
 var UserStatus = require('../models/userStatus')
-
+getInfo.post('/save',(req,res) =>{
+    var filter = {account : req.body.account};
+    var update = {money : req.body.money};
+    UserStatus.findOneAndUpdate(filter,update,(err,doc) => {
+        console.log('try to update');
+        if(err) throw err;
+        if(doc){
+            console.log('===成功更新Money===')
+            res.json({status:"OK", message:'資料庫更新成功',user:doc})
+        }
+        else{
+            console.log("=== 找不到更新的人 ===");
+            res.json({status:"fail", message:'找不到更新的人'})
+        }
+    });
+})
 getInfo.post('/',(req, res)=>{
     data ={
-        account :  req.body.account,
+        account :  req.body.account
     }
     UserStatus.findOne({
         account:data.account

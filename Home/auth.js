@@ -1,3 +1,11 @@
+var userMoney;
+var loginAccount = localStorage.getItem("Account");
+console.log("User:" + loginAccount);
+function onClick(){
+    userMoney = document.getElementById('mmoney').innerHTML;
+    userMoney ++;
+    document.getElementById('mmoney').innerHTML = userMoney;
+}
 function getInfo(){
     $.ajax({
         type: "POST",
@@ -13,8 +21,9 @@ function getInfo(){
             console.log("msg:"+result.message);
             console.log('account:'+result.user.account)
             console.log('money:'+result.user.money)
-            var para = document.getElementById('para');
-            para.innerHTML = result.user.account;
+            usermoney = result.user.money;
+            document.getElementById('para').innerHTML = result.user.account;
+            document.getElementById('mmoney').innerHTML = result.user.money;
             //请求正确之后的操作
             if(result.status=='fail'){
                 alert(result.message)
@@ -33,15 +42,33 @@ function getInfo(){
     });
     return true;
 }
+function saveInfo(){
+    userMoney = document.getElementById('mmoney').innerHTML;
+    $.ajax({
+        type: "POST",
+        url: "/getInfo/save",
+        contentType:"application/json",
+        //dataType:"json",
+        data:JSON.stringify({
+            account:loginAccount,
+            money:userMoney
+        }),//参数列表
+        success:function(result){
+            console.log('Save Ajax Success');
+            //请求正确之后的操作
+        }
+    });
+}
+
 $( document ).ready(function() {
     console.log( "ready!" );
+    userMoney = document.getElementById('mmoney').innerHTML;
     $autoRefresh = getInfo();
     if($autoRefresh){
         console.log("---Auto Refresh---");
         setInterval(function(){ 
-            getInfo();
+            saveInfo();
         }, 10000);  //預設10000毫秒自動重複執行cartnumber()函數
     }
 });
-var loginAccount = localStorage.getItem("Account");
-console.log("User:" + loginAccount);
+
