@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 //var cookieParser = require('cookie-parser');
 var login=require('./routes/login');
 var register=require('./routes/register');
+var getInfo=require('./routes/getInfo')
 
 app.use('/', express.static(__dirname));
 app.use('/', express.static(__dirname + '/login'));
@@ -24,8 +25,13 @@ app.get('/' , (req,res) => {
 })
 app.use('/login', login);
 app.use('/register', register);
+app.use('/getInfo' , getInfo)
 
-
+app.get('/Home', (req,res) =>{
+  res.sendFile(__dirname + '/Home/test.html')
+  console.log("Account:"+req.params.account)
+  console.log("Comming!");
+})
 
 
 

@@ -21,7 +21,11 @@ register.post('/post',(req, res)=>{ //使用者向db進行註冊
         var user = new User({
             appellation : req.body.appellation,
             account :  req.body.account,
-            password : req.body.password
+            password : req.body.password,
+            level : 1,
+            exp : 0,
+            money : 0,
+            love : 0
         });
         console.log("===================" + user.account + "=====================");
         //data是json格式裡面有req傳來的email和password
@@ -29,17 +33,17 @@ register.post('/post',(req, res)=>{ //使用者向db進行註冊
             if(err) 
                 throw err
             else{
-                if(count>0){
+                if(count>0){//帳號重複
                     console.log("This account has already existed! count : "+count)
                     res.json({status:"fail" , message:"該帳號名稱已經被註冊過"});
                 }
-                else{
+                else{//成功註冊
                     console.log("=== 新用戶註冊 ===");
                     user.save((err,user) =>{
                         if(err)
                             return console.error(err);
                     });
-                    res.json({status:"OK" , message:"Register Success!"});
+                    res.json({status:"OK" , message:"Register Success!",account:user.account});
                 }
             }
         })

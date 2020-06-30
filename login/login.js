@@ -18,7 +18,8 @@ $(".login-post").on("click",function(event){
                 alert(result.message)
             }
             else{
-                document.location.href ='/Home/test.html'
+                localStorage.setItem("Account" , result.account);
+                document.location.href ='/Home'
             }
          }
   });
@@ -59,7 +60,8 @@ $(".register-post").on("click",function(event){
                     alert(result.message)
                 }
                 else{
-                    document.location.href ='/Home/test.html'
+                    localStorage.setItem("Account" , result.account);
+                    document.location.href ='/Home'
                 }
             },
             /*error:function(XMLHttpRequest, textStatus, errorThrown){

@@ -43,7 +43,7 @@ login.post('/post',(req, res)=>{
             if(result){
                 console.log("==== Login Success ====")
                 console.log("DATA IS :"+ result.account)
-                res.json({status:"OK", message:'Login Success'})
+                res.json({status:"OK", message:'Login Success',account:result.account})
             }
             else{
                 console.log("=== 帳號或密碼輸入錯誤 ===");
